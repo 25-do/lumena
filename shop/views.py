@@ -4,10 +4,11 @@ from .models import Product
 # Create your views here.
 class IndexView(View):
     def get(self, request):
-        products = Product.objects.all()[:10]
-        products1 = Product.objects.all()[10:20]
-        products2 = Product.objects.all()[20:30]
+        all_products = list(Product.objects.all())  # Fetch once & convert to list
 
+        products = all_products[:10]
+        products1 = all_products[10:20]
+        products2 = all_products[20:30]
         context = {
             "products" : products,
             "products1" : products1,
