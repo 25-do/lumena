@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-xw8idb164-va4sg#&&g6h(=h(zb2t^#_xa1mudc08til@qs2^a
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['lumena.co.ke']
 
 
 # Application definition
@@ -122,6 +122,7 @@ USE_TZ = True
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
