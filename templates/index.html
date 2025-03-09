@@ -233,6 +233,7 @@
 											<div class="product-body">
 							
 												<h3 class="product-name"><a href="#">ATB box 2,4port</a></h3>
+												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
 												
 											</div>
 											
@@ -285,6 +286,7 @@
 											<div class="product-body">
 												
 												<h3 class="product-name"><a href="#">Stainless steel buckles</a></h3>
+												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
 												
 												
 											</div>
@@ -330,19 +332,22 @@
 								<div id="tab2" class="tab-pane fade in active">
 									<div class="products-slick" data-nav="#slick-nav-3">
 										<!-- product -->
+										{% for product in products %}
 										<div class="product">
 											<div class="product-img">
-												<img src="./static/img/lc adapters2.webp" alt="">
+												<img src="{{ product.image.url}}" alt="">
 												
 											</div>
 											<div class="product-body">
 												
-												<h3 class="product-name"><a href="#">Lc adapters </a></h3>
+												<h3 class="product-name"><a href="#">{{ product.name }}</a></h3>
+												<h4 class="product-price">{{product.price}}<del class="product-old-price">$990.00</del></h4>
 												
 												
 											</div>
 											
 										</div>
+										{% endfor %}
 										<!-- /product -->
 
 										<!-- product -->
