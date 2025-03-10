@@ -1,17 +1,13 @@
 from django.shortcuts import render
 from django.views import View
-from .models import Product
+from .models import Product, Category
 # Create your views here.
 class IndexView(View):
     def get(self, request):
-        all_products = list(Product.objects.all())  # Fetch once & convert to list
+        categories = Category.objects.prefetch_related("products").all()
+        category_data = {}
 
-        products = all_products[:10]
-        products1 = all_products[10:20]
-        products2 = all_products[20:30]
-        context = {
-            "products" : products,
-            "products1" : products1,
-            "products2" : products2
-        }
-        return render(request, "index.html", context)
+        for category in categories:
+            category_data[category] = category.products.all()  # Fetch products per category
+
+        return render(request, "index.html", {"categories": category_data})
