@@ -16,3 +16,4 @@ class ProductAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
     list_display = ('name', 'category', 'price', 'stock', 'created_at')
     list_filter = ('category', 'created_at')
+admin.site.site_header = "Lumena"
