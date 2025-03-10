@@ -20,7 +20,7 @@ class Product(models.Model):
         New = "New", _("New")
         Promotion  = "Promotion", _("Promotion")
 
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name="products")
     name = models.CharField(max_length=255)
     slug = models.SlugField(unique=True)
     description = models.TextField(blank=True, null=True)
